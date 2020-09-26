@@ -9,14 +9,13 @@ import co.edu.usbcali.cart.dto.CustomerDTO;
 
 @Mapper
 public interface CustomerMapper {
-	
-	
-public CustomerDTO toCustomerDTO(Customer customer);
-	
+
+	public CustomerDTO toCustomerDTO(Customer customer);
+
 	public Customer toCustomer(CustomerDTO customerDTO);
-	
+
 	public List<CustomerDTO> toCustomersDTOs(List<Customer> customers);
-	
+
 	public List<Customer> toCustomers(List<CustomerDTO> customerDTOs);
 
 }

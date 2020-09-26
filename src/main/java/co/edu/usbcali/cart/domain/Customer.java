@@ -7,109 +7,132 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
-* @author Zathura Code Generator http://zathuracode.org/
-* www.zathuracode.org
-*
-*/
+ * @author Zathura Code Generator http://zathuracode.org/ www.zathuracode.org
+ *
+ */
 @Entity
 @Table(name = "customer", schema = "public")
 public class Customer implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
-    
-    private String email;
-    
-    private String address;
-   
-    private String enable;
-    
-    private String name;
-   
-    private String phone;
-   
-    private String token;
-    private List<ShoppingCart> shoppingCarts = new ArrayList<ShoppingCart>(0);
+	
+	private static final long serialVersionUID = 1L;
 
-    public Customer() {
-    }
+	@NotNull
+	@Email
+	private String email;
 
-    public Customer(String email, String address, String enable, String name,
-        String phone, List<ShoppingCart> shoppingCarts, String token) {
-        this.email = email;
-        this.address = address;
-        this.enable = enable;
-        this.name = name;
-        this.phone = phone;
-        this.token = token;
-        this.shoppingCarts = shoppingCarts;
-    }
+	@NotNull
+	@NotEmpty
+	@Size(min=3,max = 255)
+	private String address;
 
-    @Id
-    @Column(name = "email", unique = true, nullable = false)
-    public String getEmail() {
-        return this.email;
-    }
+	@NotNull
+	@NotEmpty
+	@Size(min=1,max = 1)
+	private String enable;
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	@NotNull
+	@NotEmpty
+	@Size(min=4,max = 255)
+	private String name;
 
-    @Column(name = "address", nullable = false)
-    public String getAddress() {
-        return this.address;
-    }
+	@NotNull
+	@NotEmpty
+	@Size(min=4,max = 255)
+	private String phone;
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	@NotNull
+	@NotEmpty
+	@Size(min=4,max = 255)
+	private String token;
+	
+	
+	private List<ShoppingCart> shoppingCarts = new ArrayList<ShoppingCart>(0);
 
-    @Column(name = "enable", nullable = false)
-    public String getEnable() {
-        return this.enable;
-    }
+	public Customer() {
+	}
 
-    public void setEnable(String enable) {
-        this.enable = enable;
-    }
+	public Customer(String email, String address, String enable, String name, String phone,
+			List<ShoppingCart> shoppingCarts, String token) {
+		this.email = email;
+		this.address = address;
+		this.enable = enable;
+		this.name = name;
+		this.phone = phone;
+		this.token = token;
+		this.shoppingCarts = shoppingCarts;
+	}
 
-    @Column(name = "name", nullable = false)
-    public String getName() {
-        return this.name;
-    }
+	@Id
+	@Column(name = "email", unique = true, nullable = false)
+	public String getEmail() {
+		return this.email;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    @Column(name = "phone", nullable = false)
-    public String getPhone() {
-        return this.phone;
-    }
+	@Column(name = "address", nullable = false)
+	public String getAddress() {
+		return this.address;
+	}
 
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    @Column(name = "token", nullable = false)
-    public String getToken() {
-        return this.token;
-    }
+	@Column(name = "enable", nullable = false)
+	public String getEnable() {
+		return this.enable;
+	}
 
-    public void setToken(String token) {
-        this.token = token;
-    }
+	public void setEnable(String enable) {
+		this.enable = enable;
+	}
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
-    public List<ShoppingCart> getShoppingCarts() {
-        return this.shoppingCarts;
-    }
+	@Column(name = "name", nullable = false)
+	public String getName() {
+		return this.name;
+	}
 
-    public void setShoppingCarts(List<ShoppingCart> shoppingCarts) {
-        this.shoppingCarts = shoppingCarts;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@Column(name = "phone", nullable = false)
+	public String getPhone() {
+		return this.phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	@Column(name = "token", nullable = false)
+	public String getToken() {
+		return this.token;
+	}
+
+	public void setToken(String token) {
+		this.token = token;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "customer")
+	public List<ShoppingCart> getShoppingCarts() {
+		return this.shoppingCarts;
+	}
+
+	public void setShoppingCarts(List<ShoppingCart> shoppingCarts) {
+		this.shoppingCarts = shoppingCarts;
+	}
 }

@@ -8,84 +8,81 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-
 /**
-* @author Zathura Code Generator http://zathuracode.org/
-* www.zathuracode.org
-*
-*/
+ * @author Zathura Code Generator http://zathuracode.org/ www.zathuracode.org
+ *
+ */
 @Entity
 @Table(name = "shopping_product", schema = "public")
 public class ShoppingProduct implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
-   
-    private Integer shprId;
-   
-    private Product product;
-    
-    private ShoppingCart shoppingCart;
-    
-    private Integer quantity;
-   
-    private Long total;
+	private static final long serialVersionUID = 1L;
 
-    public ShoppingProduct() {
-    }
+	private Integer shprId;
 
-    public ShoppingProduct(Integer shprId, Product product, Integer quantity,
-        ShoppingCart shoppingCart, Long total) {
-        this.shprId = shprId;
-        this.product = product;
-        this.shoppingCart = shoppingCart;
-        this.quantity = quantity;
-        this.total = total;
-    }
+	private Product product;
 
-    @Id
-    @Column(name = "shpr_id", unique = true, nullable = false)
-    public Integer getShprId() {
-        return this.shprId;
-    }
+	private ShoppingCart shoppingCart;
 
-    public void setShprId(Integer shprId) {
-        this.shprId = shprId;
-    }
+	private Integer quantity;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "pro_id")
-    public Product getProduct() {
-        return this.product;
-    }
+	private Long total;
 
-    public void setProduct(Product product) {
-        this.product = product;
-    }
+	public ShoppingProduct() {
+	}
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "car_id")
-    public ShoppingCart getShoppingCart() {
-        return this.shoppingCart;
-    }
+	public ShoppingProduct(Integer shprId, Product product, Integer quantity, ShoppingCart shoppingCart, Long total) {
+		this.shprId = shprId;
+		this.product = product;
+		this.shoppingCart = shoppingCart;
+		this.quantity = quantity;
+		this.total = total;
+	}
 
-    public void setShoppingCart(ShoppingCart shoppingCart) {
-        this.shoppingCart = shoppingCart;
-    }
+	@Id
+	@Column(name = "shpr_id", unique = true, nullable = false)
+	public Integer getShprId() {
+		return this.shprId;
+	}
 
-    @Column(name = "quantity", nullable = false)
-    public Integer getQuantity() {
-        return this.quantity;
-    }
+	public void setShprId(Integer shprId) {
+		this.shprId = shprId;
+	}
 
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "pro_id")
+	public Product getProduct() {
+		return this.product;
+	}
 
-    @Column(name = "total", nullable = false)
-    public Long getTotal() {
-        return this.total;
-    }
+	public void setProduct(Product product) {
+		this.product = product;
+	}
 
-    public void setTotal(Long total) {
-        this.total = total;
-    }
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "car_id")
+	public ShoppingCart getShoppingCart() {
+		return this.shoppingCart;
+	}
+
+	public void setShoppingCart(ShoppingCart shoppingCart) {
+		this.shoppingCart = shoppingCart;
+	}
+
+	@Column(name = "quantity", nullable = false)
+	public Integer getQuantity() {
+		return this.quantity;
+	}
+
+	public void setQuantity(Integer quantity) {
+		this.quantity = quantity;
+	}
+
+	@Column(name = "total", nullable = false)
+	public Long getTotal() {
+		return this.total;
+	}
+
+	public void setTotal(Long total) {
+		this.total = total;
+	}
 }

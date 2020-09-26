@@ -1,7 +1,7 @@
 package co.edu.usbcali.cart.rest;
 
 public class Resultado {
-	
+
 	Integer valor;
 
 	public Resultado(Integer valor) {
@@ -17,6 +17,4 @@ public class Resultado {
 		this.valor = valor;
 	}
 
-
-	
 }

@@ -10,69 +10,66 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 /**
-* @author Zathura Code Generator http://zathuracode.org/
-* www.zathuracode.org
-*
-*/
+ * @author Zathura Code Generator http://zathuracode.org/ www.zathuracode.org
+ *
+ */
 @Entity
 @Table(name = "payment_method", schema = "public")
 public class PaymentMethod implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
-   
-    private Integer payId;
-  
-    private String enable;
-    
-    private String name;
-    private List<ShoppingCart> shoppingCarts = new ArrayList<ShoppingCart>(0);
+	private static final long serialVersionUID = 1L;
 
-    public PaymentMethod() {
-    }
+	private Integer payId;
 
-    public PaymentMethod(Integer payId, String enable, String name,
-        List<ShoppingCart> shoppingCarts) {
-        this.payId = payId;
-        this.enable = enable;
-        this.name = name;
-        this.shoppingCarts = shoppingCarts;
-    }
+	private String enable;
 
-    @Id
-    @Column(name = "pay_id", unique = true, nullable = false)
-    public Integer getPayId() {
-        return this.payId;
-    }
+	private String name;
+	private List<ShoppingCart> shoppingCarts = new ArrayList<ShoppingCart>(0);
 
-    public void setPayId(Integer payId) {
-        this.payId = payId;
-    }
+	public PaymentMethod() {
+	}
 
-    @Column(name = "enable", nullable = false)
-    public String getEnable() {
-        return this.enable;
-    }
+	public PaymentMethod(Integer payId, String enable, String name, List<ShoppingCart> shoppingCarts) {
+		this.payId = payId;
+		this.enable = enable;
+		this.name = name;
+		this.shoppingCarts = shoppingCarts;
+	}
 
-    public void setEnable(String enable) {
-        this.enable = enable;
-    }
+	@Id
+	@Column(name = "pay_id", unique = true, nullable = false)
+	public Integer getPayId() {
+		return this.payId;
+	}
 
-    @Column(name = "name", nullable = false)
-    public String getName() {
-        return this.name;
-    }
+	public void setPayId(Integer payId) {
+		this.payId = payId;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	@Column(name = "enable", nullable = false)
+	public String getEnable() {
+		return this.enable;
+	}
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "paymentMethod")
-    public List<ShoppingCart> getShoppingCarts() {
-        return this.shoppingCarts;
-    }
+	public void setEnable(String enable) {
+		this.enable = enable;
+	}
 
-    public void setShoppingCarts(List<ShoppingCart> shoppingCarts) {
-        this.shoppingCarts = shoppingCarts;
-    }
+	@Column(name = "name", nullable = false)
+	public String getName() {
+		return this.name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "paymentMethod")
+	public List<ShoppingCart> getShoppingCarts() {
+		return this.shoppingCarts;
+	}
+
+	public void setShoppingCarts(List<ShoppingCart> shoppingCarts) {
+		this.shoppingCarts = shoppingCarts;
+	}
 }

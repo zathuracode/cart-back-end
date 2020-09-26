@@ -12,108 +12,105 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-
 /**
-* @author Zathura Code Generator http://zathuracode.org/
-* www.zathuracode.org
-*
-*/
+ * @author Zathura Code Generator http://zathuracode.org/ www.zathuracode.org
+ *
+ */
 @Entity
 @Table(name = "shopping_cart", schema = "public")
 public class ShoppingCart implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
-  
-    private Integer carId;
-   
-    private Customer customer;
- 
-    private PaymentMethod paymentMethod;
-   
-    private String enable;
-   
-    private Integer items;
-    
-    private Long total;
-    private List<ShoppingProduct> shoppingProducts = new ArrayList<ShoppingProduct>(0);
+	private static final long serialVersionUID = 1L;
 
-    public ShoppingCart() {
-    }
+	private Integer carId;
 
-    public ShoppingCart(Integer carId, Customer customer, String enable,
-        Integer items, PaymentMethod paymentMethod,
-        List<ShoppingProduct> shoppingProducts, Long total) {
-        this.carId = carId;
-        this.customer = customer;
-        this.paymentMethod = paymentMethod;
-        this.enable = enable;
-        this.items = items;
-        this.total = total;
-        this.shoppingProducts = shoppingProducts;
-    }
+	private Customer customer;
 
-    @Id
-    @Column(name = "car_id", unique = true, nullable = false)
-    public Integer getCarId() {
-        return this.carId;
-    }
+	private PaymentMethod paymentMethod;
 
-    public void setCarId(Integer carId) {
-        this.carId = carId;
-    }
+	private String enable;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "email")
-    public Customer getCustomer() {
-        return this.customer;
-    }
+	private Integer items;
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
+	private Long total;
+	private List<ShoppingProduct> shoppingProducts = new ArrayList<ShoppingProduct>(0);
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "pay_id")
-    public PaymentMethod getPaymentMethod() {
-        return this.paymentMethod;
-    }
+	public ShoppingCart() {
+	}
 
-    public void setPaymentMethod(PaymentMethod paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
+	public ShoppingCart(Integer carId, Customer customer, String enable, Integer items, PaymentMethod paymentMethod,
+			List<ShoppingProduct> shoppingProducts, Long total) {
+		this.carId = carId;
+		this.customer = customer;
+		this.paymentMethod = paymentMethod;
+		this.enable = enable;
+		this.items = items;
+		this.total = total;
+		this.shoppingProducts = shoppingProducts;
+	}
 
-    @Column(name = "enable", nullable = false)
-    public String getEnable() {
-        return this.enable;
-    }
+	@Id
+	@Column(name = "car_id", unique = true, nullable = false)
+	public Integer getCarId() {
+		return this.carId;
+	}
 
-    public void setEnable(String enable) {
-        this.enable = enable;
-    }
+	public void setCarId(Integer carId) {
+		this.carId = carId;
+	}
 
-    @Column(name = "items", nullable = false)
-    public Integer getItems() {
-        return this.items;
-    }
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "email")
+	public Customer getCustomer() {
+		return this.customer;
+	}
 
-    public void setItems(Integer items) {
-        this.items = items;
-    }
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}
 
-    @Column(name = "total", nullable = false)
-    public Long getTotal() {
-        return this.total;
-    }
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "pay_id")
+	public PaymentMethod getPaymentMethod() {
+		return this.paymentMethod;
+	}
 
-    public void setTotal(Long total) {
-        this.total = total;
-    }
+	public void setPaymentMethod(PaymentMethod paymentMethod) {
+		this.paymentMethod = paymentMethod;
+	}
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "shoppingCart")
-    public List<ShoppingProduct> getShoppingProducts() {
-        return this.shoppingProducts;
-    }
+	@Column(name = "enable", nullable = false)
+	public String getEnable() {
+		return this.enable;
+	}
 
-    public void setShoppingProducts(List<ShoppingProduct> shoppingProducts) {
-        this.shoppingProducts = shoppingProducts;
-    }
+	public void setEnable(String enable) {
+		this.enable = enable;
+	}
+
+	@Column(name = "items", nullable = false)
+	public Integer getItems() {
+		return this.items;
+	}
+
+	public void setItems(Integer items) {
+		this.items = items;
+	}
+
+	@Column(name = "total", nullable = false)
+	public Long getTotal() {
+		return this.total;
+	}
+
+	public void setTotal(Long total) {
+		this.total = total;
+	}
+
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "shoppingCart")
+	public List<ShoppingProduct> getShoppingProducts() {
+		return this.shoppingProducts;
+	}
+
+	public void setShoppingProducts(List<ShoppingProduct> shoppingProducts) {
+		this.shoppingProducts = shoppingProducts;
+	}
 }
